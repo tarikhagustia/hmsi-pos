@@ -1,0 +1,1 @@
+{{ currency($model->amount) }}

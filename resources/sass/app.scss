@@ -1,0 +1,19 @@
+@import '~bootstrap';
+@import '~select2/dist/css/select2.css';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+@import './stisla/style.scss';
+@import './stisla//components.scss';
+
+.has-error {
+    label {
+        color: #dc3545;
+    }
+
+    .select2-selection {
+        border-color: #dc3545;
+    }
+}
