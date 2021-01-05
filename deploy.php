@@ -4,13 +4,13 @@ namespace Deployer;
 require 'recipe/laravel.php';
 
 // Project name
-set('application', 'bimbel');
+set('application', 'hmsi_pos');
 
 // Project repository
-set('repository', 'git@gitlab.com:tarikhagustia/bimble.git');
+set('repository', 'git@github.com:tarikhagustia/hmsi-pos.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
-set('git_tty', false);
+set('git_tty', true);
 
 // Shared files/dirs between deploys
 add('shared_files', []);
@@ -22,8 +22,9 @@ add('writable_dirs', []);
 
 // Hosts
 
-host('103.55.36.25')
-    ->user('deployer')
+host('103.119.66.139')
+    ->port(69)
+    ->user('administrator')
     ->set('deploy_path', '/var/www/html/{{application}}');
 
 // Tasks
@@ -38,4 +39,3 @@ after('deploy:failed', 'deploy:unlock');
 // Migrate database before symlink new release.
 
 // before('deploy:symlink', 'artisan:migrate');
-
