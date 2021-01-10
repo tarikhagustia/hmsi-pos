@@ -16,6 +16,6 @@ class ModelObserverProvider extends ServiceProvider
      */
     public function boot()
     {
-        StockDemand::observe(StockDemandObserver::class);
+
     }
 }

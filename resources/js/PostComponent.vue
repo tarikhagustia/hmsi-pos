@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bg-gray-200 h-screen max-h-screen">
+  <div id="app" class="bg-purple-200 h-screen max-h-screen">
     <div class="flex h-screen max-h-screen">
       <div class="pos-content w-3/4">
         <div class="header p-4">

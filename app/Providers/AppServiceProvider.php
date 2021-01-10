@@ -33,8 +33,5 @@ class AppServiceProvider extends ServiceProvider
 
         Paginator::defaultView('vendor.pagination.stisla');
 
-        Invoice::observe(InvoiceObserver::class);
-
-        InvoicePayment::observe(InvoicePaymentObserver::class);
     }
 }

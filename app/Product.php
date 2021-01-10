@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasStatus;
+use Illuminate\Support\Facades\Auth;
 
 class Product extends Model
 {
@@ -50,5 +51,13 @@ class Product extends Model
     public function stocks()
     {
         return $this->hasOne(ProductStock::class);
+    }
+
+    public function scopeBranch($builder, $id = null)
+    {
+        if (!$id) {
+            return $builder->where('branch_id', Auth::user()->branch_id);
+        }
+        return $builder->where('branch_id', $id);
     }
 }

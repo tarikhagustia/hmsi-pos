@@ -33,4 +33,9 @@ class OrderItem extends Model
 
         return $stock;
     }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }

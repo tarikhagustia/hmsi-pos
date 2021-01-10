@@ -12,7 +12,7 @@
       <div>Pajak</div>
       <div>{{ tax | currency }}</div>
     </div>
-    <button class="bg-blue-500 text-white w-full mt-2 py-2 px-2 rounded flex items-center justify-between focus:outline-none" :disabled="subtotal === 0" @click="handleClick">
+    <button class="bg-purple-500 text-white w-full mt-2 py-2 px-2 rounded flex items-center justify-between focus:outline-none" :disabled="subtotal === 0" @click="handleClick">
       <span class="font-semibold">BAYAR</span>
       <span class="text-xl font-bold">{{ total | currency }}</span>
     </button>

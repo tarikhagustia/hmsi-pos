@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Order extends Model
 {
@@ -24,7 +25,7 @@ class Order extends Model
             $number = ((int) substr($lastOrder->code, strlen($prefix))) + 1;
         }
 
-        $number = str_pad($number, 6, 0, STR_PAD_LEFT); 
+        $number = str_pad($number, 6, 0, STR_PAD_LEFT);
 
         $code = $prefix.$number;
 
@@ -49,5 +50,13 @@ class Order extends Model
     public function items()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function scopeBranch($builder, $id = null)
+    {
+        if (!$id) {
+            return $builder->where('branch_id', Auth::user()->branch_id);
+        }
+        return $builder->where('branch_id', $id);
     }
 }

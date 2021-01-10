@@ -16,7 +16,7 @@ class CheckWorkTime
     public function handle($request, Closure $next)
     {
         $isDebug = config('app.debug');
-
+        dd($isDebug);
         if(!$isDebug){
 
             $startWorkTime = strtotime('09:00:00');

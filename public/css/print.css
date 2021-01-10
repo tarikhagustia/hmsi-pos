@@ -9,6 +9,7 @@ tr,
 table {
     border-top: 1px solid black;
     border-collapse: collapse;
+    width: 100%;
 }
 
 td.description,
@@ -40,8 +41,8 @@ th.price {
 }
 
 .ticket {
-    width: 200px;
-    max-width: 200px;
+    width: 210px;
+    max-width: 210px;
 }
 
 img {

@@ -2,48 +2,69 @@
 
 @section('content')
     <section class="section">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                @livewire('branch-overview')
-            </div>
-{{--            <div class="col-lg-4 col-md-4 col-sm-12">--}}
-{{--                @livewire('pos-overview')--}}
-{{--            </div>--}}
+        <div class="section-header">
+            <h1>Dashboard</h1>
         </div>
-    </section>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-primary">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Total Produk</h4>
+                        </div>
+                        <div class="card-body">
+                            {{ $totalProducts }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="far fa-clone"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Total Kategori</h4>
+                        </div>
+                        <div class="card-body">
+                            {{ $totalCategories }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-warning">
+                        <i class="far fa-chart-bar"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Produk Terjual hari ini</h4>
+                        </div>
+                        <div class="card-body">
+                            {{ $totalSelleProduct }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-success">
+                        <i class="fas fa-money-bill-alt"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Pendapatan hari ini</h4>
+                        </div>
+                        <div class="card-body">
+                            {{ number_format($totalGross) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection
-
-@push('stylesheet')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
-@endpush
-@push('javascript')
-    <script type="text/javascript">
-
-        window.livewire.on('labelsUpdated', data => {
-            Chart.helpers.each(Chart.instances, function (instance) {
-                instance.chart.data.labels = JSON.parse(data);
-                instance.chart.update();
-            })
-        })
-
-        window.livewire.on('datasetsUpdated', data => {
-            console.log(data)
-            var data = JSON.parse(data);
-            Chart.helpers.each(Chart.instances, function (instance) {
-                instance.chart.data.datasets.forEach((dataset, key) => {
-                    dataset.data = data[key];
-                });
-                instance.chart.update();
-            })
-        })
-
-        window.livewire.on('optionsUpdated', data => {
-            var data = JSON.parse(data);
-            Chart.helpers.each(Chart.instances, function (instance) {
-                instance.chart.options = data;
-                instance.chart.update();
-            })
-        })
-
-    </script>
-@endpush
